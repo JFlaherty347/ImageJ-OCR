@@ -1,0 +1,43 @@
+apply plugin: 'java'
+sourceCompatibility = 11
+targetCompatibility = 11
+// apply plugin: ‘application’
+
+repositories 
+{
+   mavenCentral()
+}
+
+dependencies 
+{
+	//ImageJ
+   compile files("/home/joey/Desktop/COMP345/ij153-linux64-java8/ImageJ/ij.jar")
+   
+   //Tess4J
+   compile group: 'net.sourceforge.tess4j', name: 'tess4j', version: '4.5.3'
+
+   //junit
+   testCompile "junit:junit:4.12"
+}
+
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+    }
+}
+
+jar 
+{
+	manifest
+	{
+		attributes 'Main-Class': 'com.COMP345.OCR.OCR_'
+	}
+}
+
+// compileJava.options.fork = true
+compileJava.options.forkOptions.executable = '/usr/bin/java'
+
+//update jre from 52 to 55 or compile for 52
