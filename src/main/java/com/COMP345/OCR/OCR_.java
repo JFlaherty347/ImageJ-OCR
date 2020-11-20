@@ -29,7 +29,7 @@ import java.io.PrintWriter;
 import java.awt.image.BufferedImage;
 
 import net.sourceforge.tess4j.*;
-
+import net.sourceforge.tess4j.util.LoadLibs;
 
 public class OCR_ implements PlugInFilter
 {
@@ -56,7 +56,10 @@ public class OCR_ implements PlugInFilter
 	    try
 	    {
 	    	//path is specific to my computer for now, directories can be a pain so I didn't bother yet
-	     	tesseract.setDatapath("/home/joey/Desktop/COMP345/Project/ImageJ-OCR/tess4j/src/main/resources/tessdata");
+	     	// tesseract.setDatapath("/home/joey/Desktop/COMP345/Project/ImageJ-OCR/tess4j/src/main/resources/tessdata"); //not mobile
+	     	File tessDataFolder = LoadLibs.extractTessResources("tessdata"); 
+  			tesseract.setDatapath(tessDataFolder.getAbsolutePath());
+
 	    	String resultingText = tesseract.doOCR(sourceImage);
 	     	IJ.showMessage("OCR", resultingText);
 	    }
