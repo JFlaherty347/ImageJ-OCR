@@ -49,14 +49,14 @@ public class OCR_ implements PlugInFilter
 
 	public void run(ImageProcessor ip)
 	{
-		IJ.showMessage("OCR", "Hello ImageJ!");
+		IJ.showMessage("OCR", "Welcome! Hit ok to begin OCR. Images with many words may take a while!"); 
     	BufferedImage sourceImage = ip.getBufferedImage();
     	Tesseract tesseract = new Tesseract();
 
 	    try
 	    {
 	    	//path is specific to my computer for now, directories can be a pain so I didn't bother yet
-	     	tesseract.setDatapath("C:\\Users\\losth\\Desktop\\COMP345\\Project\\OCR\\Tess4J-3.4.8-src\\Tess4J\\tessdata");
+	     	tesseract.setDatapath("/home/joey/Desktop/COMP345/Project/ImageJ-OCR/tess4j/src/main/resources/tessdata");
 	    	String resultingText = tesseract.doOCR(sourceImage);
 	     	IJ.showMessage("OCR", resultingText);
 	    }

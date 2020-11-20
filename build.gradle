@@ -14,7 +14,7 @@ dependencies
    compile files("/home/joey/Desktop/COMP345/ij153-linux64-java8/ImageJ/ij.jar")
    
    //Tess4J
-   compile group: 'net.sourceforge.tess4j', name: 'tess4j', version: '4.5.3'
+   compile group: 'net.sourceforge.tess4j', name: 'tess4j', version: '4.5.4'
 
    //junit
    testCompile "junit:junit:4.12"
