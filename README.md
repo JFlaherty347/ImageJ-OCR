@@ -1,16 +1,24 @@
 # ImageJ-OCR
 
-An imageJ plugin that performs OCR using tesseract OCR engine. Tesseract usage is done through tess4j.
+An imageJ plugin that performs OCR using in imageJ. Through the tess4J library, the tesseract OCR engine is used.
+
+## Installation
+
+To install the plugin, download OCR.zip and place it into your imageJ's plugin folder and extract it. Ensure that once it is extracted that inside the OCR folder are 2 files and a folder and that it is **NOT** in a duplicate folder. Thus it should be:
+
+`/wherever/ImageJ/plugins/OCR/ImageJ-OCR.jar`
+and not
+`/wherever/ImageJ/plugins/OCR/OCR/ImageJ-OCR.jar`
+
+After you place the files in the right spot, restart ImageJ and the plugin should be installed.
+
+## Usage
+
+To use the plugin, first open the image you wish to perform OCR on. Then perform any preprocessing necessary to improve results. Finally, open the plugins menu and select OCR. Click 'ok' on the welcome message and await your results. Large images may take some time to fully scan, but once it is complete, results will be displayed in another pop-up window.
 
 ## Compilation
-This project is currently set up to use Maven to compile. To compile try the following:
+This project is currently set up to use gradle to compile. To compile try the following:
 
-`mvn package`
+`gradle build`
 
-## Running in ImageJ
-Take OCR_.class and *all* .jar files and place them in a folder called OCR within the ImageJ plugins folder. 
-
-## Current Issues
-As of now, the code fails in imageJ stating that you "need to install jai image-io" and offers a dead link to install. Some possibilities are the jar is incorrect (despite being supplied by tess4j), the dependency isn't being handled correctly (I haven't used maven much), or something completely different.
-
-Previously a somewhat similar issue occured involved the tesseract library itself which was solved after moving the tess4j.jar into the OCR plugin folder.
+Note that due to a dependency in Tess4J, the code cannot be compiled *easily* on a Windows 64 bit OS. This is due to the JAI imageio dependency within Tess4J. Read more about why this is the case on [this StackOverflow question](https://stackoverflow.com/a/20832583). 
